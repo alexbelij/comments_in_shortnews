@@ -1,1 +1,0 @@
-# comments_in_shortnews
