@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dleplugin>
+	<name>Показ комментариев в короткой новости.</name>
+	<description>Модуль показа всех комментариев в краткой новости.</description>
+	<icon></icon>
+	<version>1.0</version>
+	<dleversion>13</dleversion>
+	<versioncompare>greater</versioncompare>
+	<upgradeurl>https://github.com/phoenixxxy25/comments_in_shortnews</upgradeurl>
+	<filedelete>0</filedelete>
+	<mysqlinstall><![CDATA[INSERT INTO `dle_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('a_mod_preview', 'Comments in shortnews', 'Модуль показа всех комментариев в краткой новости', '', '1'); CREATE TABLE IF NOT EXISTS {PREFIX}_comments_preview (main varchar(4) NOT NULL, enable varchar(3) NOT NULL DEFAULT 'on', css_incl varchar(3) NOT NULL DEFAULT 'off', animation_r INT(1) NOT NULL DEFAULT 1, ani_duration INT(2) NOT NULL DEFAULT 4, cats_list varchar(255) DEFAULT ''); INSERT INTO `{PREFIX}_comments_preview` (`main`, `enable`, `animation_r`, `cats_list`) VALUES ('main', 'on', 'off', 1, 4, '')]]></mysqlinstall>
+	<mysqlupgrade><![CDATA[]]></mysqlupgrade>
+	<mysqlenable><![CDATA[UPDATE {PREFIX}_comments_preview SET enable='on' WHERE main='main']]></mysqlenable>
+	<mysqldisable><![CDATA[UPDATE {PREFIX}_comments_preview SET enable='off' WHERE main='main']]></mysqldisable>
+	<mysqldelete><![CDATA[DELETE FROM `{prefix}_admin_sections` WHERE name='a_mod_preview'; DROP TABLE {PREFIX}_comments_preview]]></mysqldelete>
+</dleplugin>

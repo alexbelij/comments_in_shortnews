@@ -1,0 +1,50 @@
+.ul_sc {
+  list-style: none;
+  width: 100%;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  background: white;
+}
+
+.ul_sc li {
+  width: 80%;
+  left: 10%;
+  height: 100%;
+  background: rgb(233, 234, 235);
+  position: absolute;
+  margin: 0;
+}
+
+.ul_sc li img {
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+  display: inline-block;
+  float: left;
+}
+
+.c_avatar_div {
+  width: 100px;
+  height: 100%;
+  float: left;
+  margin: 0;
+}
+
+.c_comment_div {
+  height: calc(100% - 20px);
+  width: calc(100% - 120px);
+  float: right;
+  margin: 0;
+  padding: 10px;
+}
+
+.c_comment_text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: #838688;
+}
