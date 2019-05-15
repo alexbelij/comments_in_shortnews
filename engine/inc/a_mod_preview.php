@@ -1,16 +1,15 @@
 <?PHP
 
-// if( !defined( 'DATALIFEENGINE' ) OR !defined( 'LOGGED_IN' ) ) {
-// 	header( "HTTP/1.1 403 Forbidden" );
-// 	header ( 'Location: ../../' );
-// 	die( "Hacking attempt!" );
-// }
+if( !defined( 'DATALIFEENGINE' ) OR !defined( 'LOGGED_IN' ) ) {
+	header( "HTTP/1.1 403 Forbidden" );
+	header ( 'Location: ../../' );
+	die( "Hacking attempt!" );
+}
 
 if($action == ""){
 include_once (DLEPlugins::Check(ENGINE_DIR . '/classes/parse.class.php'));
-	$row = $db->super_query( "SELECT enable as enb, css_incl as ci, cats_list as cl, animation_r as ad, ani_duration as adr FROM " . PREFIX . "_comments_preview WHERE main = 'main'" );
-	// $cat_list = explode(',', $row['cl']);
-	$cat_list = $row['cl'] == '' ? $row['cl'] : explode( ',', $row['cl'] );
+$row = $db->super_query( "SELECT enable as enb, css_incl as ci, cats_list as cl, animation_r as ad, ani_duration as adr FROM " . PREFIX . "_comments_preview WHERE main = 'main'" );
+$cat_list = $row['cl'] == '' ? $row['cl'] : explode( ',', $row['cl'] );
 $categories_list = CategoryNewsSelection( $cat_list, 0 );
 $ani_dir = $row['ad'] != NULL ? intval($row['ad']) : 1;
 $adi_duration = $row['adr'] != NULL ? intval($row['adr']) : 4;
@@ -34,18 +33,6 @@ echo<<<HTML
 		$("input[name=ani_duration][value={$adi_duration}]").attr('checked', 'checked');
 		$("input[name=css_incl][value={$css_incl}]").attr('checked', 'checked');
 	});
-
-	// function moveCategoryChange(obj) {
-  
-	//   var value = $(obj).val();
-  
-	//   if (value == 5) {
-	// 	$('#movecatlist').show();
-	//   } else {
-	// 	$('#movecatlist').hide();
-	//   }
-	  
-	// }	
 
 	$(function(){
 		$('.categoryselect').chosen({no_results_text: 'Ничего не найдено'});
