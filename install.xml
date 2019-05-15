@@ -7,8 +7,8 @@
 	<dleversion>13</dleversion>
 	<versioncompare>greater</versioncompare>
 	<upgradeurl>https://github.com/phoenixxxy25/comments_in_shortnews</upgradeurl>
-	<filedelete>0</filedelete>
-	<mysqlinstall><![CDATA[INSERT INTO `{PREFIX}_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('a_mod_preview', 'Comments in shortnews', 'Модуль показа всех комментариев в краткой новости', '', '1'); CREATE TABLE IF NOT EXISTS {PREFIX}_comments_preview (main varchar(4) NOT NULL, enable varchar(3) NOT NULL DEFAULT 'on', css_incl varchar(3) NOT NULL DEFAULT 'off', animation_r INT(1) NOT NULL DEFAULT 1, ani_duration INT(2) NOT NULL DEFAULT 4, cats_list varchar(255) DEFAULT ''); INSERT INTO `{PREFIX}_comments_preview` (`main`, `enable`, `animation_r`, `cats_list`) VALUES ('main', 'on', 'off', 1, 4, '')]]></mysqlinstall>
+	<filedelete>1</filedelete>
+	<mysqlinstall><![CDATA[INSERT INTO `{PREFIX}_admin_sections` (`name`, `title`, `descr`, `icon`, `allow_groups`) VALUES ('a_mod_preview', 'Comments in shortnews', 'Модуль показа всех комментариев в краткой новости', '', '1'); CREATE TABLE IF NOT EXISTS {PREFIX}_comments_preview (main varchar(4) NOT NULL, enable varchar(3) NOT NULL DEFAULT 'on', css_incl varchar(3) NOT NULL DEFAULT 'off', animation_r INT(1) NOT NULL DEFAULT 1, ani_duration INT(2) NOT NULL DEFAULT 4, cats_list varchar(255) DEFAULT ''); INSERT INTO `{PREFIX}_comments_preview` (`main`, `enable`, `css_incl`, `animation_r`, `ani_duration`, `cats_list`) VALUES ('main', 'on', 'off', 1, 4, '');]]></mysqlinstall>
 	<mysqlupgrade><![CDATA[]]></mysqlupgrade>
 	<mysqlenable><![CDATA[UPDATE {PREFIX}_comments_preview SET enable='on' WHERE main='main']]></mysqlenable>
 	<mysqldisable><![CDATA[UPDATE {PREFIX}_comments_preview SET enable='off' WHERE main='main']]></mysqldisable>
