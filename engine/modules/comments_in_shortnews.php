@@ -45,7 +45,7 @@ while ( $row = $db->get_array() ) {
 		$tpl->result['module_result'] = '';
 	}
 	
-	$tpl->load_template('modules/shortcomments.tpl');
+	$tpl->load_template('modules/comments_in_shortnews.tpl');
 
 	if(strrpos($row['text'], '<!--dle_media_end--><br>') == true && strrpos($row['text'], '<!--dle_media_end--><br>') > 0){
 		$row['text'] = trim(strstr($row['text'], '<!--dle_media_begin', true).substr($row['text'], strrpos($row['text'], '<!--dle_media_end--><br>')+24));
