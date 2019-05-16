@@ -36,21 +36,38 @@ echo<<<HTML
 
 	$(function(){
 		$('.categoryselect').chosen({no_results_text: 'Ничего не найдено'});
-
+		$('input:checked').parent().addClass("r_selected");
+    	$('input[type=radio]').click(function () {
+        	$('input:not(:checked)').parent().removeClass("r_selected");
+        	$('input:checked').parent().addClass("r_selected");
+    	});
 	});
 </script>
 <style>
 .an_dir_radio_block label{
 	background: #77777747;
 	padding: 5px;
-	border: 1px solid #777777;
 	transition: all .2s linear;
 	color: #3a3a3a;
+	border-radius: 2px;
+    font-size: 12px;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+}
+
+.an_dir_radio_block label.r_selected {
+    background: #009688;
+    color: #fff;
+}
+.an_dir_radio_block label.r_selected:hover {
+	    background: #007e72;
+	    color: #fff;
 
 }
 .an_dir_radio_block label:hover {
-	border-color: #0095ff;
-	background-color: #d1d1d1;
+	background-color: #9b9b9b7a;
 	transition: all .2s linear;
 	color: black;
 }
