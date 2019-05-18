@@ -14,7 +14,6 @@ $post_cats_arr = explode(',', $rw['category']);
 $result = array_intersect($post_cats_arr, $settings_cats);
 
 if(count($result) > 0 || $result != NULL || $module_settings['cats_list'] == "") {
-global $row;
 if(!$row['comm_num']) return '';
 if(file_exists(TEMPLATE_DIR.'/modules/comments_in_shortnews.tpl')) {
 $comments_count = $db->super_query("SELECT COUNT(id) as cnt FROM ".PREFIX."_comments WHERE post_id={$news_id}");
